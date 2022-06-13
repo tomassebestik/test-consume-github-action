@@ -1,0 +1,17 @@
+name: Build and Run Test Application
+
+on: workflow_dispatch
+  
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Build Espressif Application
+        uses: tomassebestik/test-github-actions/espapp_build@master
+        with:
+          app_directory: test_app
+          espidf_versions: ["release-v4.3", "release-v4.4", "latest"]
+          espidf_targets: ["esp32", "esp32c3", "esp32s3"] 
+          espidf_excluded_versions: ["release-v4.3"]
+          espidf_excluded_targets: [esp32s3]
