@@ -1,0 +1,27 @@
+name: Git Pull Request Workflow
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - master
+
+env:
+  one: 1
+  two: zwei
+  three: tres
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "${{ env.one }}"
+        echo "${{ env.three }}"
+
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "${{ env.two }}"
+        echo "${{ env.three }}"
